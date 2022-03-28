@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Business.Constans;
+using Core.Aspects.Transaction;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -23,6 +24,7 @@ namespace Business.Concrete
             _creditCardService = creditCardService;
         }
 
+        [TransactionScopeAspect]
         public IResult DeleteCustomerCreditCard(CustomerCreditCardModel customerCreditCardModel)
         {
             var creditCardResult = _creditCardService.Get(customerCreditCardModel.CreditCard.CardNumber,
@@ -77,6 +79,7 @@ namespace Business.Concrete
             return new SuccessDataResult<List<CreditCard>>(userCreditCards, Messages.CustomersCreditCardsListed);
         }
 
+        [TransactionScopeAspect]
         public IResult SaveCustomerCreditCard(CustomerCreditCardModel customerCreditCardModel)
         {
             var creditCardResult = _creditCardService.Get(customerCreditCardModel.CreditCard.CardNumber,

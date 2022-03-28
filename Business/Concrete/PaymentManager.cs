@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Business.Constans;
+using Core.Aspects.Transaction;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -21,6 +22,8 @@ namespace Business.Concrete
             _paymentDal = paymentDal;
             _creditCardService = creditCardService;
         }
+
+        [TransactionScopeAspect]
         public IDataResult<int> Pay(CreditCard creditCard, int customerId, decimal amount)
         {
             //Validate credit card

@@ -18,9 +18,10 @@ namespace Business.Concrete
         private IUserService _userService;
         private ITokenHelper _tokenHelper;
 
-        public AuthManager(IUserService userService)
+        public AuthManager(IUserService userService, ITokenHelper tokenHelper)
         {
             _userService = userService;
+            _tokenHelper = tokenHelper;
         }
 
         public IDataResult<AccessToken> CreateAccessToken(User user)

@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Core.Aspects.Caching
+namespace Core.Aspects.Autofac.Caching
 {
     public class CacheRemoveAspect:MethodInterception
     {

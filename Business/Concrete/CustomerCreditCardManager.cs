@@ -1,6 +1,6 @@
 ﻿using Business.Abstract;
 using Business.Constans;
-using Core.Aspects.Transaction;
+using Core.Aspects.Autofac.Transaction;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;

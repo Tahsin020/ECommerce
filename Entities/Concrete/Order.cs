@@ -15,6 +15,7 @@ namespace Entities.Concrete
         public int ProductId { get; set; }
         public int ProductQuantity { get; set; }
         public int CargoCompanyId { get; set; }
+        public decimal Total { get; set; }
         public DateTime OrderDate { get; set; }
         public DateTime DeliveryDate { get; set; }
         public string Description { get; set; }

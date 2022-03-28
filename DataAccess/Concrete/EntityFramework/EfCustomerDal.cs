@@ -7,6 +7,7 @@ using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,7 +15,7 @@ namespace DataAccess.Concrete.EntityFramework
 {
     public class EfCustomerDal : EfEntityRepositoryBase<Customer, ECommerceContext>, ICustomerDal
     {
-        public List<CustomerDetailDto> GetCustomerDetailDtos(User user)
+        public List<CustomerDetailDto> GetCustomerDetailDtos(Expression<Func<CustomerDetailDto, bool>> filter = null)
         {
             using (var context = new ECommerceContext())
             {
@@ -33,8 +34,9 @@ namespace DataAccess.Concrete.EntityFramework
                                  Description = c.Description,
                                  Status = c.Status
                              };
-                return result.ToList();
-
+                return filter == null
+                    ? result.ToList()
+                    : result.Where(filter).ToList();
             }
         }
     }

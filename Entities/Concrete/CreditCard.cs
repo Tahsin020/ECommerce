@@ -15,7 +15,7 @@ namespace Entities.Concrete
         public string ExpireMonth { get; set; }
         public string Cvc { get; set; }
         public string CardHolderFullName { get; set; }
-        public bool Balance { get; set; }
+        public decimal Balance { get; set; }
 
     }
 }
